@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
+    <title>Login</title>
+    <script type="text/javascript">
+    function valid()
+	{
+		    //USER ID VALIDATION
+			var uid = document.form2.uid.value;
+			if (uid.length == 0) 
+			{
+			   alert("user id can not be empty");
+		       document.form2.uid.value = "";
+		       document.form2.uid.focus();
+		       return;
+			}
+			else
+			{
+				  if(uid.length < 5 || uid.length > 20) 
+			 	{
+				   alert("User ID must be of length 5 to 20");
+			       document.form2.uid.value = "";
+			       document.form2.uid.focus();
+			       return;
+				}
+			}
+			
+	//PASSWORD VALIDATION
+	var pwd = document.form2.pwd.value;
+	if (pwd.length == 0) 
+	{
+	   alert("Password can not be empty");
+       document.form2.pwd.value = "";
+       document.form2.pwd.focus();
+       return;
+	}
+	else
+	{
+		
+		 if(pwd.length<8 || pwd.length>12)
+		 {
+		 	alert("password length must be minimum 8 and maximum 12");
+       		document.form2.pwd.value = "";
+       		document.form2.pwd.focus();
+      		return;
+		 }
+		 else
+		 {
+		 	  var noflag = false;
+              var alpha_flag = false;
+              var spflag=false;
+              
+              for(var i=0;i<pwd.length;i++)
+              {
+                  if (pwd.charCodeAt(i) >= 48 && pwd.charCodeAt(i) <= 57)
+                  {
+                      noflag = true;
+                  }
+
+                  if ((pwd.charCodeAt(i) >= 65 && pwd.charCodeAt(i) <= 90) || (pwd.charCodeAt(i) >= 97 && pwd.charCodeAt(i) <= 121))
+                  {
+                      alpha_flag = true;
+                  }
+
+                  if (!((pwd.charCodeAt(i) >= 65 && pwd.charCodeAt(i) <= 90) || (pwd.charCodeAt(i) >= 97 && pwd.charCodeAt(i) <= 121) || (pwd.charCodeAt(i) >= 49 && pwd.charCodeAt(i) <= 57))) {
+                      spflag = true;
+                  }
+              }
+                  
+              if(noflag==false)
+              {
+                  alert("Password must contain atleast one number");
+                  document.form2.pwd.value = "";
+                  document.form2.pwd.focus();
+                  return;
+              }
+              
+               if (alpha_flag == false)
+                {
+                  alert("Password must contain atleast one alphabate");
+                  document.form2.pwd.value = "";
+                  document.form2.pwd.focus();
+                  return;
+                }
+
+              if (spflag == false) 
+              {
+                  alert("Password must contain atleast one special character");
+                  document.form2.pwd.value = "";
+                  document.form2.pwd.focus();
+                  return;
+              }
+              
+		 }
+	
+	}
+	document.form2.submit();	
+}	
+    </script>
+
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="default.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- start header -->
+<div id="header">
+	<div id="menu">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="Login.html">Login</a></li>
+			<li><a href="Register.jsp">Register</a></li>
+		</ul>
+	</div>
+</div>
+<!-- end header -->
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+		<div class="post">
+			<h1 class="title">Welcome to Campus Portal</h1>
+		</div>
+	</div>
+</div>
+<!-- end page -->
+<!-- ======================================================================================================== -->
+</head>
+<body>
+
+    <h3>Login</h3>
+    <div style="height: 242px; margin-left: 4px">
+    <form action="CheckLogin" method="post" name="form2" id="form2">
+        <table align="center" style="width: 38%; height: 118px;">
+            <tr>
+                <td class="auto-style5"><strong>User ID&nbsp;&nbsp;&nbsp; :</strong></td>
+                <td class="auto-style4">
+                    <input id="uid" type="text" name="uid"/></td>
+            </tr>
+            <tr>
+                <td class="auto-style5"><strong>Password&nbsp; :</strong></td>
+                <td class="auto-style4">
+                    <input id="pwd" type="password" name="pwd" /></td>
+            </tr>
+            <tr>
+                <td class="auto-style5"><strong>UserType :</strong></td>
+                <td class="auto-style4">
+                    <select id="usertype" name="usertype1">
+                        <option value="1">Student</option>
+                        <option value="2">Institute Coordinator</option>
+                        <option value="3">Centralize Management</option>
+                        <option value="4">Company</option>
+                        <option value="5">Administrator</option>
+                    </select></td>
+            </tr>
+        </table>
+        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input id="Submit1" type="button" value="submit" onclick="valid()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="Reset1" type="reset" value="reset" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </form>
+    </div>
+<!-- ======================================================================================================== -->
+
+<div id="footer">
+	<p id="legal">&copy;2023 Compaus Portal. All Rights Reserved. | Designed by ABC Software</p>
+</div>
+</body>
+</html>
